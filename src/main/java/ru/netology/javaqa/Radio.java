@@ -2,10 +2,10 @@ package ru.netology.javaqa;
 
 
 public class Radio {
-  private int currentRadioStation; //радио
-    private  int currentVol; //громкость
+    private int currentRadioStation; //радио
+    private int currentVol; //громкость
 
-   public int getStation() {
+    public int getStation() {
         return currentRadioStation;
     }
 
@@ -60,6 +60,7 @@ public class Radio {
 
         }
     }
+
     public void volUp() {              // Увелечение  громкости на 1
         if (currentVol < 100) {
             currentVol = currentVol + 1;
