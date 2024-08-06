@@ -3,55 +3,49 @@ package ru.netology.javaqa;
 
 
 public class Radio {
-    //радио
+
+    //станции
     private int maxStation = 9;
     private int minStation = 0;
+    //радио
+    private int currentRadioStation;
+    //громкость
+    private int currentVolume;
+    //звук
     private int maxVolume = 100;
     private int minVolume = 0;
-    private int currentRadioStation = minStation; // текущее = 1
-    private int currentVolume;
 
+    //коструктор
     public Radio(int size) {
-        maxStation = minStation + size;
-
+        currentRadioStation = currentRadioStation + size;
     }
 
+    //конструктор
     public Radio() {
-        this((9));
+        this((10));
     }
+
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
     public int getMaxVolume() {
-        return maxVolume;
+        return currentVolume;
     }
 
     public int getMinVolume() {
-        return minVolume;
+        return currentVolume;
     }
 
-    public void setMaxVolume(int maxVolume) {
-        if (maxVolume > 0) {
-            return;
-
-        }
-        if (maxVolume < 100) {
+    public void setCurrentVol(int newVolume) {
+        if (newVolume < 0) {
             return;
         }
-        currentVolume = maxVolume;
-
-    }
-
-    public void setMinVolume(int minVolume) {
-        if (minVolume < 0) {
+        if (newVolume > 100) {
             return;
         }
-        if (minVolume > 100) {
-            return;
-        }
-        currentVolume = minVolume;
+        currentVolume = newVolume;
     }
 
     public int getCurrentRadioStation() {
@@ -59,33 +53,10 @@ public class Radio {
     }
 
 
-    public void setMinStation(int minStation) {
-        if (minStation > 0) {
-            return;
-
-        }
-        if (minStation < 9) {
-            return;
-        }
-        currentRadioStation = minStation;
-
-    }
-
     public int getMinStation() {
         return minStation;
     }
 
-    public void setMaxStation(int maxStation) {
-        if (maxStation < 0) {
-            return;
-
-        }
-        if (maxStation > 9) {
-            return;
-        }
-        currentRadioStation = maxStation;
-
-    }
 
     public int getMaxStation() {
         return maxStation;
@@ -103,7 +74,6 @@ public class Radio {
         if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
         } else {
-
             currentRadioStation = 9;
         }
     }
@@ -114,15 +84,16 @@ public class Radio {
         } else {
             currentVolume = 100;
         }
+        //  this.currentVolume= currentVolume;
     }
 
-    public void volumeDown() {
-        if (currentVolume < 0) {
+    public void vulumeDown() {
+        if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         } else {
             currentVolume = 0;
         }
-
+        //this.currentVolume = minVolume;
     }
 
 }
