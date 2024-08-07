@@ -19,7 +19,7 @@ public class Radio {
 
     //конструктор
     public Radio() {
-        this(10);
+        this(20);
     }
 
     // Получить текущую станцию
