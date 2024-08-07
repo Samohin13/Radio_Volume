@@ -1,103 +1,88 @@
-
 package ru.netology.javaqa;
 
 
 public class Radio {
 
-    //станции
-    private int maxStation = 9;
-    private int minStation = 0;
     //радио
     private int currentRadioStation;
+    // колличество станций
+    private int numberStation;
     //громкость
     private int currentVolume;
-    //звук
-    private int maxVolume = 100;
-    private int minVolume = 0;
 
-    //коструктор
-    public Radio(int size) {
-        currentRadioStation = currentRadioStation + size;
+
+    //коструктор с параметром
+    public Radio(int numberStation) {
+        this.numberStation = numberStation;
+        this.currentRadioStation = 0;
     }
 
     //конструктор
     public Radio() {
-        this((10));
+        this(10);
     }
 
+    // Получить текущую станцию
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
 
+    }
+
+    // Получить текущую громкость
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public int getMaxVolume() {
-        return currentVolume;
-    }
-
-    public int getMinVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVol(int newVolume) {
-        if (newVolume < 0) {
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
             return;
         }
-        if (newVolume > 100) {
+        if (currentVolume > 100) {
             return;
         }
-        currentVolume = newVolume;
+        this.currentVolume = currentVolume;
     }
 
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
+    public void setCurrentRadioStation(int currentRadioStation) {
+        if (currentRadioStation >= 0 && currentRadioStation < numberStation) {
+            this.currentRadioStation = currentRadioStation;
+        }
     }
 
-
-    public int getMinStation() {
-        return minStation;
-    }
-
-
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-    public void next() {          //Переключение станции вперед
+    // Переключение на следующую станцию
+    public void next() {
         if (currentRadioStation < 9) {
-            currentRadioStation = currentRadioStation + 1;
+            currentRadioStation = (currentRadioStation + 1);
         } else {
-            currentRadioStation = 0;
+            currentRadioStation = currentRadioStation;
         }
     }
 
-    public void prev() {  //Переключение станции назад
+    // Переключение на предыдущую станцию
+    public void prev() {
         if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
         } else {
-            currentRadioStation = 9;
+            currentRadioStation = currentRadioStation;
         }
     }
 
+    //Увелечение громкости
     public void volumeUp() {
         if (currentVolume < 100) {
-            currentVolume = currentVolume + 1;
+            currentVolume++;
         } else {
             currentVolume = 100;
         }
-        //  this.currentVolume= currentVolume;
     }
 
-    public void vulumeDown() {
+    // Уменьшение громкости
+    public void volumeDown() {
         if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;
+            currentVolume--;
         } else {
             currentVolume = 0;
         }
-        //this.currentVolume = minVolume;
     }
 
 }
-
-
-
-
