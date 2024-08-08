@@ -53,19 +53,18 @@ public class Radio {
 
     // Переключение на следующую станцию
     public void next() {
-        if (currentRadioStation < 9) {
-            currentRadioStation = (currentRadioStation + 1);
+        if (currentRadioStation == numberStation - 1) {
+            currentRadioStation = 0;
         } else {
-            currentRadioStation = currentRadioStation;
+            currentRadioStation++;
         }
     }
 
-    // Переключение на предыдущую станцию
     public void prev() {
-        if (currentRadioStation > 0) {
-            currentRadioStation = currentRadioStation - 1;
+        if (currentRadioStation == 0) {
+            currentRadioStation = numberStation - 1;
         } else {
-            currentRadioStation = currentRadioStation;
+            currentRadioStation--;
         }
     }
 

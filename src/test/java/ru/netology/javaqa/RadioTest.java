@@ -47,28 +47,28 @@ public class RadioTest {
     }
 
     @Test
-    // вкл Максимальной станции
+    // переключение станции вперед
 
-    public void currentStationMax() {
+    public void currentStationNext() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(9);
 
         radio.next();
 
-        Assertions.assertEquals(9, radio.getCurrentRadioStation());
+        Assertions.assertEquals(0, radio.getCurrentRadioStation());
 
     }
 
     @Test
-    // вкл Минимальной станции
+    // переключение станции назад
 
-    public void currentStationMin() {
+    public void currentStationPrev() {
         Radio radio = new Radio();
         radio.setCurrentRadioStation(0);
 
         radio.prev();
 
-        Assertions.assertEquals(0, radio.getCurrentRadioStation());
+        Assertions.assertEquals(9, radio.getCurrentRadioStation());
     }
 
     @Test
@@ -154,9 +154,53 @@ public class RadioTest {
     }
 
     @Test
-    public void test() {
+    public void currentStationNumber() {
         Radio radio = new Radio(20);
         radio.setCurrentRadioStation(15);
         Assertions.assertEquals(15, radio.getCurrentRadioStation());
     }
+
+    @Test
+    public void prevNumberStation() {
+        Radio radio = new Radio(20);
+        radio.prev();
+        Assertions.assertEquals(19, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void currentPrevStation() {
+        Radio radio = new Radio(1);
+        radio.prev();
+        Assertions.assertEquals(0, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void nextNumberStation() {
+        Radio radio = new Radio(20);
+        radio.next();
+        Assertions.assertEquals(1, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void currentNextStation() {
+        Radio radio = new Radio(0);
+        radio.next();
+        Assertions.assertEquals(1, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void nextCurrentStation() {
+        Radio radio = new Radio(10);
+        radio.next();
+        Assertions.assertEquals(11, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void setCurrentStationNumber() {
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(1);
+        Assertions.assertEquals(1, radio.getCurrentRadioStation());
+    }
 }
+
+
