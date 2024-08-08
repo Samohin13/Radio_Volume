@@ -152,10 +152,11 @@ public class RadioTest {
         radio.setCurrentRadioStation(10);
         Assertions.assertEquals(0, radio.getCurrentRadioStation());
     }
+
     @Test
-    public void test(){
-        Radio radio= new Radio();
+    public void test() {
+        Radio radio = new Radio(20);
         radio.setCurrentRadioStation(15);
-        Assertions.assertEquals(15,radio.getCurrentRadioStation());
+        Assertions.assertEquals(15, radio.getCurrentRadioStation());
     }
 }

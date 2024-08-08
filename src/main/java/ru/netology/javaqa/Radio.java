@@ -9,6 +9,8 @@ public class Radio {
     private int numberStation;
     //громкость
     private int currentVolume;
+    // радио тест с 20 станциями
+    private int testСurrentRadio;
 
 
     //коструктор с параметром
@@ -19,7 +21,7 @@ public class Radio {
 
     //конструктор
     public Radio() {
-        this(20);
+        this(10);
     }
 
     // Получить текущую станцию
