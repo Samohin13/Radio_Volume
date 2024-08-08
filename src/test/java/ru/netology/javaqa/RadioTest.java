@@ -169,7 +169,8 @@ public class RadioTest {
 
     @Test
     public void currentPrevStation() {
-        Radio radio = new Radio(1);
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(1);
         radio.prev();
         Assertions.assertEquals(0, radio.getCurrentRadioStation());
     }
@@ -183,16 +184,18 @@ public class RadioTest {
 
     @Test
     public void currentNextStation() {
-        Radio radio = new Radio(0);
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(0);
         radio.next();
         Assertions.assertEquals(1, radio.getCurrentRadioStation());
     }
 
     @Test
     public void nextCurrentStation() {
-        Radio radio = new Radio(10);
+        Radio radio = new Radio(20);
+        radio.setCurrentRadioStation(16);
         radio.next();
-        Assertions.assertEquals(11, radio.getCurrentRadioStation());
+        Assertions.assertEquals(17, radio.getCurrentRadioStation());
     }
 
     @Test
